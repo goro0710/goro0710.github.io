@@ -2,6 +2,8 @@ import { create, createReportList } from './modules/canvas.js';
 import { name, draw, reportArea, reportPerimeter } from './modules/square.js';
 import randomSquare from './modules/square.js';
 
+name = "Triangle";
+
 let myCanvas = create('myCanvas', document.body, 480, 320);
 let reportList = createReportList(myCanvas.id);
 
