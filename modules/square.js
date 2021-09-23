@@ -1,4 +1,4 @@
-const name = 'square';
+var name = 'square';
 
 function draw(ctx, length, x, y, color) {
   ctx.fillStyle = color;
