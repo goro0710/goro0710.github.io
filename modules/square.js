@@ -1,19 +1,23 @@
 export class Square{
-  constructor(){
-    
+  constructor(ctx, length, x, y, color){
+    this.ctx = ctx;
+    this.length = length;
+    this.x = x;
+    this.y = y;
+    this.color = color;
   }
 
   name = 'square';
 
-  draw(ctx, length, x, y, color) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, length, length);
+  draw() {
+    this.ctx.fillStyle = color;
+    this.ctx.fillRect(x, y, length, length);
   
     return {
-      length: length,
-      x: x,
-      y: y,
-      color: color
+      length: this.length,
+      x: this.x,
+      y: this.y,
+      color: this.color
     };
   }
   
@@ -22,17 +26,17 @@ export class Square{
      return num;
   }
   
-  reportArea(length, listId) {
+  reportArea(listId) {
     let listItem = document.createElement('li');
-    listItem.textContent = `${name} area is ${length * length}px squared.`
+    listItem.textContent = `${name} area is ${this.length * this.length}px squared.`
   
     let list = document.getElementById(listId);
     list.appendChild(listItem);
   }
   
-  reportPerimeter(length, listId) {
+  reportPerimeter(listId) {
     let listItem = document.createElement('li');
-    listItem.textContent = `${name} perimeter is ${length * 4}px.`
+    listItem.textContent = `${name} perimeter is ${this.length * 4}px.`
   
     let list = document.getElementById(listId);
     list.appendChild(listItem);
@@ -43,18 +47,18 @@ export class Square{
     let color2 = random(0, 255);
     let color3 = random(0, 255);
     let color = `rgb(${color1},${color2},${color3})`
-    ctx.fillStyle = color;
+    this.ctx.fillStyle = color;
   
     let x = random(0, 480);
     let y = random(0, 320);
     let length = random(10, 100);
-    ctx.fillRect(x, y, length, length);
+    this.ctx.fillRect(x, y, length, length);
   
     return {
-      length: length,
-      x: x,
-      y: y,
-      color: color
+      length: this.length,
+      x: this.x,
+      y: this.y,
+      color: this.color
     };
   }
 }
