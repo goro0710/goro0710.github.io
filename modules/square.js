@@ -42,7 +42,7 @@ export class Square{
     list.appendChild(listItem);
   }
   
-  randomSquare(ctx) {
+  randomSquare() {
     let color1 = random(0, 255);
     let color2 = random(0, 255);
     let color3 = random(0, 255);
