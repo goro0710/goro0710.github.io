@@ -10,7 +10,7 @@ export class Square{
   name = 'square';
 
   draw() {
-    this.ctx.fillStyle = color;
+    this.ctx.fillStyle = this.color;
     this.ctx.fillRect(x, y, length, length);
   
     return {
