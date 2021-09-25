@@ -43,15 +43,15 @@ export class Square{
   }
   
   randomSquare() {
-    let color1 = Math.floor(Math.random(0, 256));
-    let color2 = Math.floor(Math.random(0, 256));
-    let color3 = Math.floor(Math.random(0, 256));
+    let color1 = Math.floor((Math.random()*255)+1);
+    let color2 = Math.floor((Math.random()*255)+1);
+    let color3 = Math.floor((Math.random()*255)+1);
     let color = `rgb(${color1},${color2},${color3})`
     this.ctx.fillStyle = color;
   
-    let x = Math.floor(Math.random(0, 481));
-    let y = Math.floor(Math.random(0, 321));
-    let length = Math.floor(Math.random(0, 101));
+    let x = Math.floor((Math.random()*480)+1);
+    let y = Math.floor((Math.random()*320)+1);
+    let length = Math.floor(((Math.random()*100)+1));
     this.ctx.fillRect(x, y, length, length);
   
     return {
