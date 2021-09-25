@@ -12,13 +12,6 @@ export class Square{
   draw() {
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.length, this.length);
-  
-    return {
-      length: this.length,
-      x: this.x,
-      y: this.y,
-      color: this.color
-    };
   }
   
   random(min, max) {
@@ -28,7 +21,7 @@ export class Square{
   
   reportArea(listId) {
     let listItem = document.createElement('li');
-    listItem.textContent = `${name} area is ${this.length * this.length}px squared.`
+    listItem.textContent = `${this.name} area is ${this.length * this.length}px squared.`
   
     let list = document.getElementById(listId);
     list.appendChild(listItem);
@@ -36,7 +29,7 @@ export class Square{
   
   reportPerimeter(listId) {
     let listItem = document.createElement('li');
-    listItem.textContent = `${name} perimeter is ${this.length * 4}px.`
+    listItem.textContent = `${this.name} perimeter is ${this.length * 4}px.`
   
     let list = document.getElementById(listId);
     list.appendChild(listItem);
@@ -53,12 +46,5 @@ export class Square{
     let y = Math.floor((Math.random()*320)+1);
     let length = Math.floor(((Math.random()*100)+1));
     this.ctx.fillRect(x, y, length, length);
-  
-    return {
-      length: this.length,
-      x: this.x,
-      y: this.y,
-      color: this.color
-    };
   }
 }
