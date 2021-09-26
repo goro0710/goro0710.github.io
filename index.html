@@ -1,16 +1,84 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en-US">
+  <body>
+      <button id="add">Add listener</button>
+      <button id="remove">Remove listener</button>
+      <button id="change">Change background</button>
+  </body>
   <head>
     <meta charset="utf-8">
-    <title>Basic JavaScript module example</title>
+    <title>Event Handlers</title>
+    <script type="text/javascript" src="main.js"></script>
+  </head>
+</html> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show video box example</title>
     <style>
-      canvas {
-        border: 1px solid black;
+      div {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 480px;
+        height: 380px;
+        border-radius: 10px;
+        background-color: #eee;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1));
       }
+
+      .hidden {
+        left: -50%;
+      }
+
+      .showing {
+        left: 50%;
+      }
+
+      div video {
+        display: block;
+        width: 400px;
+        margin: 40px auto;
+      }
+
     </style>
-    <script type="module" src="main.js"></script>
   </head>
   <body>
+    <button data-color="red">Display video</button>
 
+    <div class="hidden">
+      <video>
+        <source src="rabbit320.mp4" type="video/mp4">
+        <source src="rabbit320.webm" type="video/webm">
+        <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p> 
+      </video>
+    </div>
+
+    <script>
+
+      const btn = document.querySelector('button');
+      const videoBox = document.querySelector('div');
+      const video = document.querySelector('video');
+
+      btn.onclick = function() {
+        videoBox.setAttribute('class','showing');
+      }
+
+      videoBox.onclick = function() {
+        videoBox.setAttribute('class','hidden');
+      };
+
+      video.onclick = function() {
+        video.play();
+        event.stopPropagation();
+      };
+
+      window.onkeydown = function(){
+        console.log(event);
+      }
+
+    </script>
   </body>
 </html>
+
