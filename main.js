@@ -1,12 +1,21 @@
-import { create, createReportList } from './modules/canvas.js';
-import { Square } from './modules/square.js';
+let btn = document.getElementById('change');
 
-let myCanvas = create('myCanvas', document.body, 480, 320);
-let reportList = createReportList(myCanvas.id);
+let add = document.getElementById('add');
+let remove = document.getElementById('remove');
 
-let square1 = new Square(myCanvas.ctx, 50, 50, 100, 'blue');
-square1.draw();
-square1.reportArea(reportList);
-square1.reportPerimeter(reportList);
+add.onclick = function(){
+    btn.addEventListener('click', changeColor);
+}
 
-square1.randomSquare();
+remove.onclick = function(){
+    btn.removeEventListener('click', changeColor);
+}
+
+function getRandomInteger() {
+    return Math.floor((Math.random()*255)+1);
+}
+
+function changeColor(event){
+    let color = `rgb(${getRandomInteger()},${getRandomInteger()},${getRandomInteger()})`;
+    event.target.style.backgroundColor = color;
+}
