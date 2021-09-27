@@ -1,84 +1,118 @@
-<!-- <!DOCTYPE html>
-<html lang="en-US">
-  <body>
-      <button id="add">Add listener</button>
-      <button id="remove">Remove listener</button>
-      <button id="change">Change background</button>
-  </body>
-  <head>
-    <meta charset="utf-8">
-    <title>Event Handlers</title>
-    <script type="text/javascript" src="main.js"></script>
-  </head>
-</html> -->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Show video box example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM example</title>
     <style>
+      /* .highlight {
+        color: white;
+        background-color: black;
+        padding: 10px;
+        width: 250px;
+        text-align: center;
+      } */
+
+      /* body {
+        margin: 0;
+      }
+
       div {
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        width: 480px;
-        height: 380px;
-        border-radius: 10px;
-        background-color: #eee;
-        background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1));
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        background-image: url(bgtile.png);
+        border: 10px solid white;
+      } */
+
+      li {
+        margin-bottom: 10px;
       }
 
-      .hidden {
-        left: -50%;
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
       }
-
-      .showing {
-        left: 50%;
-      }
-
-      div video {
-        display: block;
-        width: 400px;
-        margin: 40px auto;
-      }
-
-    </style>
+      </style>
   </head>
   <body>
-    <button data-color="red">Display video</button>
+    <h1>My shopping list</h1>
 
-    <div class="hidden">
-      <video>
-        <source src="rabbit320.mp4" type="video/mp4">
-        <source src="rabbit320.webm" type="video/webm">
-        <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p> 
-      </video>
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
     </div>
 
-    <script>
+    <ul></ul>
+    <!-- <div></div> -->
+      <!-- <section>
+        <a class="cheese" href="https://www.mozilla.org/">Mozarella</a>
+        <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+        <p>Here we will add a link to the <a class="anchor" href="https://www.mozilla.org/">Mozilla homepage</a></p>
+      </section> -->
+      <script>
+        // const link = document.querySelector('a.cheese');
+        // link.textContent = 'Mozilla Developer Network';
+        // link.href = 'https://developer.mozilla.org';
 
-      const btn = document.querySelector('button');
-      const videoBox = document.querySelector('div');
-      const video = document.querySelector('video');
+        // const sect = document.querySelector('section');
+        // const para = document.createElement('p');
+        // para.textContent = 'We hope you enjoyed the ride.';
+        // sect.appendChild(para);
 
-      btn.onclick = function() {
-        videoBox.setAttribute('class','showing');
-      }
+        // para.style.color = 'white';
+        // para.style.backgroundColor = 'black';
+        // para.style.padding = '10px';
+        // para.style.width = '250px';
+        // para.style.textAlign = 'center';
 
-      videoBox.onclick = function() {
-        videoBox.setAttribute('class','hidden');
-      };
+        // para.setAttribute('class', 'highlight');
 
-      video.onclick = function() {
-        video.play();
-        event.stopPropagation();
-      };
+        // const text = document.createTextNode(' — the premier source for web development knowledge.');
+        // const linkPara = document.querySelector('p');
+        // linkPara.appendChild(text);
 
-      window.onkeydown = function(){
-        console.log(event);
-      }
+        // sect.appendChild(linkPara);
 
-    </script>
+        // sect.removeChild(linkPara);
+
+        // linkPara.remove();
+
+        // linkPara.parentNode.removeChild(linkPara);
+
+        // const div = document.querySelector('div');
+        
+        // let winWidth = window.innerWidth;
+        // let winHeight = window.innerHeight;
+        // div.style.width = winWidth + 'px';
+        // div.style.height = winHeight + 'px';
+
+        // window.onresize = function() {
+        //   winWidth = window.innerWidth;
+        //   winHeight = window.innerHeight;
+        //   div.style.width = winWidth + 'px';
+        //   div.style.height = winHeight + 'px';
+        // }
+
+        const ulRef = document.querySelector('ul');
+        const btnRef = document.querySelector('button');
+        const inputRef = document.querySelector('input');
+
+        btnRef.addEventListener('click', () => {
+          let liRef = document.createElement('li');
+          liRef.textContent = inputRef.value;
+          let liBtnRef = document.createElement('button');
+          liBtnRef.innerHTML = "Delete";
+          liRef.appendChild(liBtnRef);
+          ulRef.appendChild(liRef);
+          inputRef.value = "";
+          liBtnRef.addEventListener('click', () => {
+            ulRef.removeChild(liRef);
+          })
+          inputRef.focus();
+        })
+      </script>
   </body>
 </html>
-
