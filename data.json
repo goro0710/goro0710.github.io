@@ -1,0 +1,32 @@
+sellerList =  [
+    {
+        "name" : "Myntra",
+        "price" : "INR 380",
+        "url" : "https://www.myntra.com"
+    },
+    {
+        "name" : "Flipkart",
+        "price" : "INR 890",
+        "url" : "https://www.flipkart.com"
+    },
+    {
+        "name" : "Flipkart",
+        "price" : "INR 430"
+    },
+    {
+        "name" : "Flipkart",
+        "price" : "INR 3890"
+    },
+    {
+        "name" : "Flipkart",
+        "price" : "INR 3890"
+    },
+    {
+        "name" : "Flipkart",
+        "price" : "INR 3890"
+    },
+    {
+        "name" : "Flipkart",
+        "price" : "INR 3890"
+    }
+]
